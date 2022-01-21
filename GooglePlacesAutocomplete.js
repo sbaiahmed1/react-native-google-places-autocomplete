@@ -615,16 +615,6 @@ export const GooglePlacesAutocomplete = forwardRef((props, ref) => {
 
   const _renderRow = (rowData = {}, index) => {
     return (
-      <ScrollView
-        contentContainerStyle={
-          props.isRowScrollable ? { minWidth: '100%' } : { width: '100%' }
-        }
-        scrollEnabled={props.isRowScrollable}
-        keyboardShouldPersistTaps={props.keyboardShouldPersistTaps}
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-        showsVerticalScrollIndicator={false}
-      >
         <TouchableHighlight
           style={
             props.isRowScrollable ? { minWidth: '100%' } : { width: '100%' }
@@ -643,7 +633,6 @@ export const GooglePlacesAutocomplete = forwardRef((props, ref) => {
             {_renderRowData(rowData, index)}
           </View>
         </TouchableHighlight>
-      </ScrollView>
     );
   };
 
