@@ -757,28 +757,38 @@ export const GooglePlacesAutocomplete = forwardRef((props, ref) => {
       listViewDisplayed === true
     ) {
       return (
-        <FlatList
-          nativeID='result-list-id'
-          scrollEnabled={!props.disableScroll}
-          style={[
-            props.suppressDefaultStyles ? {} : defaultStyles.listView,
-            props.styles.listView,
-          ]}
-          data={dataSource}
-          keyExtractor={keyGenerator}
-          extraData={[dataSource, props]}
-          ItemSeparatorComponent={_renderSeparator}
-          renderItem={({ item, index }) => _renderRow(item, index)}
-          ListEmptyComponent={
-            stateText.length > props.minLength && props.listEmptyComponent
-          }
-          ListHeaderComponent={
-            props.renderHeaderComponent &&
-            props.renderHeaderComponent(stateText)
-          }
-          ListFooterComponent={_renderPoweredLogo}
-          {...props}
-        />
+        <>
+          {/*<FlatList*/}
+          {/*  nativeID='result-list-id'*/}
+          {/*  scrollEnabled={!props.disableScroll}*/}
+          {/*  style={[*/}
+          {/*    props.suppressDefaultStyles ? {} : defaultStyles.listView,*/}
+          {/*    props.styles.listView,*/}
+          {/*  ]}*/}
+          {/*  data={dataSource}*/}
+          {/*  keyExtractor={keyGenerator}*/}
+          {/*  extraData={[dataSource, props]}*/}
+          {/*  ItemSeparatorComponent={_renderSeparator}*/}
+          {/*  renderItem={({ item, index }) => _renderRow(item, index)}*/}
+          {/*  ListEmptyComponent={*/}
+          {/*    stateText.length > props.minLength && props.listEmptyComponent*/}
+          {/*  }*/}
+          {/*  ListHeaderComponent={*/}
+          {/*    props.renderHeaderComponent &&*/}
+          {/*    props.renderHeaderComponent(stateText)*/}
+          {/*  }*/}
+          {/*  ListFooterComponent={_renderPoweredLogo}*/}
+          {/*  {...props}*/}
+          {/*/>*/}
+          <View
+            style={[
+              props.suppressDefaultStyles ? {} : defaultStyles.listView,
+              props.styles.listView,
+            ]}
+          >
+            {dataSource?.map((place, index) => _renderRow(place, index))}
+          </View>
+        </>
       );
     }
 
